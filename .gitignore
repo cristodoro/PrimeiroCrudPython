@@ -3,4 +3,5 @@
 *.pyc
 .DS_store
 media
+.env
 
