@@ -11,7 +11,8 @@
 
     {% if user.is_authenticated %}
     <p>Bem vindo:  {{ user.username }}</p>
-<a href={% url 'logout' %}>Sair</a>
+    <a href="{% url 'persons_list' %}">ir para crud</a>
+    <a href={% url 'logout' %}>Sair</a>
     {% else %}
     <a href="{% url 'login' %}">Entrar</a>
     {% endif %}

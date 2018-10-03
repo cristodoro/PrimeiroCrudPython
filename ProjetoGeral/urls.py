@@ -21,9 +21,9 @@ from ProjetoApp import urls as ProjetoApp_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',ola),
+    path('ola',ola),
     path('pessoa/<str:nome>/',fname),
-    path('person/', include(ProjetoApp_urls)),
+    path('', include(ProjetoApp_urls)),
     path('login/', auth_views.LoginView.as_view(), name="login"),
     path('logout/', auth_views.LogoutView.as_view(), name="logout"),
 

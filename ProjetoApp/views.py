@@ -37,6 +37,7 @@ def persons_list(request):
     return render(request,'person.html', {'person': person})
 
 
+@login_required
 def persons_new(request):
     form = PersonForm(request.POST or None)
 
@@ -46,6 +47,7 @@ def persons_new(request):
     return render(request, 'person_form.html', {'form': form})
 
 
+@login_required
 def persons_update(request,id):
     person = get_object_or_404(Person, pk=id)
     form = PersonForm(request.POST or None,instance=person)
@@ -56,6 +58,7 @@ def persons_update(request,id):
     return render(request, 'person_form.html', {'form':form})
 
 
+@login_required
 def persons_delete(request, id):
     person = get_object_or_404(Person, pk=id)
 
