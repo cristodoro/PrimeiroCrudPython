@@ -42,8 +42,8 @@ def persons_new(request):
     form = PersonForm(request.POST or None)
 
     if form.is_valid():
-            form.save()
-            return redirect('persons_list')
+        form.save()
+        return redirect('persons_list')
     return render(request, 'person_form.html', {'form': form})
 
 
@@ -53,8 +53,9 @@ def persons_update(request,id):
     form = PersonForm(request.POST or None,instance=person)
 
     if form.is_valid():
-            form.save()
-            return redirect('persons_list')
+        form.save()
+        return redirect('persons_list')
+
     return render(request, 'person_form.html', {'form':form})
 
 
