@@ -1,13 +1,14 @@
 from django.shortcuts import HttpResponse,render, redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from .models import Person
 from .forms import PersonForm
 # Create your views here.
 
 
-@login_required
+
 def ola(request):
-    return render(request, 'html.html')
+    return render(request, 'home.html')
 
 
 def lerDoBanco(nome):
@@ -67,3 +68,13 @@ def persons_delete(request, id):
         person.delete()
         return redirect('persons_list')
     return render(request, 'person_delete_confirm.html', {'person':person})
+
+
+def logoff(request):
+    logout(request)
+    return redirect('home')
+
+
+def home(request):
+    return render(request,'home.html')
+

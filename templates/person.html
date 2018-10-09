@@ -1,26 +1,31 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <ul>
+{% extends 'base.html' %}
+
+{% load bootstrap  %}
+
+{% block title %} Clientes {% endblock %}
+
+
+{% block main %}
+
+    <ul class="list-group">
         {% for Person in person  %}
 
-            <li>
+            <li class=" list-group-item">
 
                     <a href="{% url 'persons_update' Person.id %}"> {{ Person.first_name }} </a>
-                    <a href="{% url 'persons_delete' Person.id %}">Deletar</a>
+                    <a href="{% url 'persons_delete' Person.id %}">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
 
             </li>
 
         {% endfor %}
+
     </ul>
+
     <br>
-    <a href="{% url 'persons_new' %}"> Novo Cliente </a>
-</body>
-</html>
+    <a href="{% url 'persons_new' %}"class="btn btn-primary"> Novo Cliente </a>
+    <a href="{% url 'home' %}"class="btn btn-light"> Voltar </a>
+    {% endblock %}
+
+

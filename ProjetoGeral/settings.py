@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG',default=False, cast=bool)
 
-ALLOWED_HOSTS = ['app-cristodoro.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['app-cristodoro.herokuapp.com', '127.0.0.1']
 
 
 
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ProjetoApp'
+    'bootstrapform',
+    'ProjetoApp',
 
 ]
 
@@ -125,5 +126,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = 'html'
+LOGIN_REDIRECT_URL = 'home'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
